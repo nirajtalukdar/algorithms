@@ -11,6 +11,8 @@ import java.util.Random;
  */
 public class Fibonacci {
 
+    private static long[] index = null;
+
     public static long fibonacciUsingRecursion(int indexPos) {
 
         if(indexPos < 2)
@@ -36,6 +38,20 @@ public class Fibonacci {
         return F;
     }
 
+    /**
+     * Process of memoization during recursion reduces the running time of the algorithm to a significant amount
+     * @param indexPos int
+     * @return long
+     */
+    public static long fibonacciUsingMemoization(int indexPos) {
+
+        if (index[indexPos] != -1)
+            return index[indexPos];
+
+        index[indexPos] = fibonacciUsingMemoization(indexPos - 1) + fibonacciUsingMemoization(indexPos - 2);
+        return  index[indexPos];
+    }
+
     public static void main(String[] args) {
 
         Random rNumber = new Random();
@@ -51,5 +67,15 @@ public class Fibonacci {
         System.out.println("========= Using loop =======");
 
         System.out.println("Fibonacci Sequence number in indexPosition "+n+" : "+fibonacciUsingLoop(n));
+
+        index = new long[n+1];
+
+        index[0] = 0;
+        index[1] = 1;
+        for (int i = 2; i < index.length; i++) {
+            index[i] = -1;
+        }
+
+        System.out.println("Fibonacci Sequence number in indexPosition "+n+" using memoization : "+fibonacciUsingMemoization(n));
     }
 }
