@@ -13,6 +13,11 @@ public class Fibonacci {
 
     private static long[] index = null;
 
+    /**
+     * Time complexity of fibonacci Sequence using recursion is O(2^n)
+     * @param indexPos int
+     * @return long
+     */
     public static long fibonacciUsingRecursion(int indexPos) {
 
         if(indexPos < 2)
@@ -60,13 +65,13 @@ public class Fibonacci {
 
         int n = rNumber.nextInt(high-low) + low;
 
-        System.out.println("========= Using recursion =======");
-
-        System.out.println("Fibonacci Sequence number in indexPosition "+n+" : "+ fibonacciUsingRecursion(n));
-
         System.out.println("========= Using loop =======");
 
         System.out.println("Fibonacci Sequence number in indexPosition "+n+" : "+fibonacciUsingLoop(n));
+
+        System.out.println("========= Using recursion =======");
+
+        System.out.println("Fibonacci Sequence number in indexPosition "+n+" : "+ fibonacciUsingRecursion(n));
 
         index = new long[n+1];
 
