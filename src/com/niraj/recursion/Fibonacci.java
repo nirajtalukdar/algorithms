@@ -45,6 +45,7 @@ public class Fibonacci {
 
     /**
      * Process of memoization during recursion reduces the running time of the algorithm to a significant amount
+     * Time complexity of fibonacci sequence using recursion with memoization is O(log n)
      * @param indexPos int
      * @return long
      */
