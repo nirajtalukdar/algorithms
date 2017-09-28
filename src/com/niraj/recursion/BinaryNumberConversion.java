@@ -3,6 +3,11 @@ package com.niraj.recursion;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Method to represent a number in its binary format. Basically, the number is divided
+ * by 2 (binary base is 2) and the remainder is stored as the bit. This can be carried
+ * out recursively.
+ */
 public class BinaryNumberConversion {
 
     private static List<Integer> number = new ArrayList<>();
