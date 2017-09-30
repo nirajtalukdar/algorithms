@@ -4,6 +4,12 @@ import java.util.Random;
 
 public class PrimeNumber {
 
+    /**
+     * Running time complexity of finding whether a number is prime through the square root method
+     * is O(√n)
+     * @param n int
+     * @return boolean
+     */
     private static boolean isNumberPrime(int n) {
 
         if (n == 2)
