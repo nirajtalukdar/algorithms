@@ -15,7 +15,7 @@ public class PrimeNumber {
         double sqrt = Math.sqrt(n);
 
         for (int i = 3; i <= sqrt; i+=2) {
-            if (sqrt%i == 0)
+            if (n%i == 0)
                 return false;
         }
         return true;
