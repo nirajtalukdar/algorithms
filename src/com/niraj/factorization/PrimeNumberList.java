@@ -2,6 +2,11 @@ package com.niraj.factorization;
 
 import java.util.Random;
 
+/**
+ * Method to find the list of prime numbers from 0 to n(inclusive). The algorithm
+ * applied over here is known as 'Sieve of Eratosthenes'. We basically keep on dismissing
+ * the factors of a number in ascending order till we reach n.
+ */
 public class PrimeNumberList {
 
     public static void main(String[] args) {
@@ -10,10 +15,6 @@ public class PrimeNumberList {
         int rNum = robj.nextInt(300);
 
         int[] primeList = new int[rNum+1];
-
-        /*for (int i : primeList) {
-            primeList[i] = 1;
-        }*/
 
         for (int i = 0; i <= primeList.length-1; i++) {
             primeList[i] = 1;
