@@ -2,6 +2,11 @@ package com.niraj.sorting;
 
 import java.util.Random;
 
+
+/**
+ * Time complexity of Selection Sort algorithm is O(n^2). It is an in-place sorting algorithm which doesn't
+ * require any extra memory for processing the sorting order
+ */
 public class SelectionSort {
 
     private int[] populateArray() {
@@ -17,6 +22,9 @@ public class SelectionSort {
 
     private void sortArray(int[] input) {
 
+        /** Min variable for holding the index position of the minimum value in each pass. The remaining array will
+         * be compared with the element at this index position at every iteration. The moment we find another element
+         * smaller than the element at this index position, min value will be replaced with the current index **/
         int min = 0;
 
         for (int i = 0; i < input.length-1; i++) {
