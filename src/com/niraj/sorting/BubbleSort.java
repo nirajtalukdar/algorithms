@@ -21,7 +21,7 @@ public class BubbleSort {
 
             boolean isSwapped = false;
 
-            for (int j = 0; j < array.length - i; j++) {
+            for (int j = 0; j < array.length - 1-i; j++) {
 
                 if(array[j] > array[j+1]) {
                     swapElement(array, j, j+1);
