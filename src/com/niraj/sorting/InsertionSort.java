@@ -11,9 +11,9 @@ public class InsertionSort {
     private int[] populateArray() {
 
         int[] array = new int[10];
-
+        Random rNum = new Random();
         for (int i = 0; i < 10; i++) {
-            array[i] = new Random().nextInt(175);
+            array[i] = rNum.nextInt(175);
         }
 
         return array;
