@@ -1,5 +1,7 @@
 package com.niraj.sorting;
 
+import java.util.Random;
+
 public class QuickSort {
 
     private void doQuickSort(int[] array, int startIndex, int endIndex) {
@@ -36,6 +38,23 @@ public class QuickSort {
     }
 
     private void displayArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+" ");
+        }
+    }
 
+    public static void main(String[] args) {
+
+        int[] array = new int[20];
+        Random rNum = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rNum.nextInt(75);
+        }
+        QuickSort qSort = new QuickSort();
+        System.out.println("Array before sorting ============>");
+        qSort.displayArray(array);
+        qSort.doQuickSort(array,0,array.length-1);
+        System.out.println("\nArray after sorting ============>");
+        qSort.displayArray(array);
     }
 }
