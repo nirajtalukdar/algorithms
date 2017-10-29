@@ -40,13 +40,20 @@ public class QuickSort {
     }
 
     /**
-     * Randomized partitioning of array reduces the chances to hit the worst case of quick sort
+     * Randomized partitioning of an array reduces the chances to hit the worst case of quick sort
      * algorithm to almost zero. This makes the quick sort algorithm adaptable with the running
-     * time complexity at O(n log n) instead of O(n^2)
+     * time complexity at O(n log n) instead of O(n^2). Randomized partitioning will optimize the
+     * algorithm in case the array is already sorted. It helps in swapping any random pivot index
+     * value with the end index value of the array.
      */
     private int getRandomizedPartitionIndex(Random rNum, int[] array, int startIndex, int endIndex) {
 
         int pivotIndex = rNum.nextInt(endIndex-startIndex) + startIndex;
+        /**
+         * Below swapping is required to avoid running into a worst case if the array is
+         * already sorted. Note that the call to getPartitionIndex will always happen with the
+         * start and end index and not the pivot index. Only the values are swapped before calling.
+         */
         swap(array, pivotIndex, endIndex);
         int partitionIndex = getPartitionIndex(array, startIndex, endIndex);
         return  partitionIndex;
