@@ -2,6 +2,14 @@ package com.niraj.sorting;
 
 import java.util.Random;
 
+
+/**
+ * Shell sort algorithm is an improvised version of insertion sort algorithm. The performance of insertion sort
+ * worsens if it is applied on an array which is sorted in descending order. This is because every element has to
+ * be shifted to the right. To avoid this problem, Donald Shell came up with the idea of sorting elements in a
+ * calculated distance apart. This improves the running time complexity to an extent. The formula to derive at the
+ * distance place a crucial role as different distances produces different time complexity against different input size.
+ */
 public class ShellSort {
 
     private void doShellSorting(int[] array) {
