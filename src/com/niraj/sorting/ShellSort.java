@@ -19,7 +19,7 @@ public class ShellSort {
         while (gap > 0) {
 
             for (int i = gap; i < array.length; i++) {
-
+ 
                 int current = array[i];
                 int j = i - gap;
 
