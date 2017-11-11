@@ -25,15 +25,25 @@ public class RadixSort {
 
         while (max/placeValue > 0) {
 
+            /**
+             * Reset the counter every time before you make one pass. This is required from the 2nd pass
+             * onwards to avoid considering previous passes's count values.
+             */
             for (int i = 0; i < temp.length; i++) {
                 temp[i] = 0;
             }
 
+            /**
+             * Fetch the LSD and increment the index by one. Here the index is considered by the LSD retrieved.
+             */
             for (int i = 0; i < input.length; i++) {
                 int index = (input[i]/placeValue) % 10;
                 temp[index]++;
             }
 
+            /**
+             * Sum of counts. Sum of current index with previous index count.
+             */
             for (int i = 1; i < temp.length; i++) {
                 temp[i] = temp[i] + temp[i-1];
             }
