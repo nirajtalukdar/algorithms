@@ -16,7 +16,7 @@ public class RadixSort {
     }
 
 
-    private int[] doRadixSort(int[] input, int max) {
+    private void doRadixSort(int[] input, int max) {
 
         int placeValue = 1;
 
@@ -55,9 +55,16 @@ public class RadixSort {
                 temp[(input[i]/placeValue)%10]--;
             }
 
+            /**
+             * Copy the sorted numbers back to the input array
+             */
+            for (int i = 0; i < input.length; i++) {
+
+                input[i] = sortedArray[i];
+            }
+
             placeValue = placeValue*10;
         }
-        return sortedArray;
     }
 
     private void displayArray(int[] array) {
@@ -68,7 +75,7 @@ public class RadixSort {
 
     public static void main(String[] args) {
 
-        int[] array = new int[5];
+        int[] array = new int[12];
         Random rNum = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = rNum.nextInt(75);
@@ -76,7 +83,7 @@ public class RadixSort {
         RadixSort rSort = new RadixSort();
         System.out.println("Array before sorting ============>");
         rSort.displayArray(array);
-        array = rSort.doRadixSort(array, rSort.findMaxNumber(array));
+        rSort.doRadixSort(array, rSort.findMaxNumber(array));
         System.out.println("\nArray after sorting ============>");
         rSort.displayArray(array);
     }
