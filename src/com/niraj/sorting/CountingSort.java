@@ -16,41 +16,24 @@ public class CountingSort {
         return max;
     }
 
+    private void doCountingSort(int[] input, int maxNumber) {
 
-    private void doCountingSort(int[] input, int max) {
+        int[] countArray = new int[maxNumber+1];
 
-        int[] temp = new int[10];
-        int[] sortedArray = new int[input.length];
-        int placeValue = 1;
-
-        while (max/placeValue > 0) {
-
-            for (int i = 0; i < temp.length; i++) {
-                temp[i] = 0;
-            }
-
-            for (int i = 0; i < input.length; i++) {
-                int lsd = (input[i]/placeValue)%10;
-                temp[lsd]++;
-            }
-
-            for (int i = 1; i < temp.length; i++) {
-                temp[i] = temp[i] + temp[i-1];
-            }
-
-            for (int i = input.length-1; i >= 0; i--) {
-                int index = temp[(input[i]/placeValue)%10] -1;
-                sortedArray[index] = input[i];
-                temp[(input[i]/placeValue)%10]--;
-            }
-
-            for (int i = 0; i < input.length; i++) {
-                input[i] = sortedArray[i];
-            }
-
-            placeValue = placeValue*10;
+        for (int i : input) {
+            countArray[i]++;
         }
 
+        int sortedArrayIndex = 0;
+
+        for (int i = 0; i < countArray.length; i++) {
+
+            while (countArray[i] > 0) {
+                input[sortedArrayIndex] = i;
+                countArray[i]--;
+                sortedArrayIndex++;
+            }
+        }
     }
 
     private void displayArray(int[] array) {
@@ -64,7 +47,7 @@ public class CountingSort {
         int[] array = new int[15];
         Random rNum = new Random();
         for (int i = 0; i < array.length; i++) {
-            array[i] = rNum.nextInt(75);
+            array[i] = rNum.nextInt(99);
         }
         CountingSort cSort = new CountingSort();
         System.out.println("Array before sorting ============>");
@@ -73,5 +56,4 @@ public class CountingSort {
         System.out.println("\nArray after sorting ============>");
         cSort.displayArray(array);
     }
-
 }
