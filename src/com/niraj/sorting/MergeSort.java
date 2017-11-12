@@ -8,7 +8,7 @@ public class MergeSort {
 
         if (startIndex < endIndex) {
 
-            int midIndex = (startIndex+endIndex)/2;
+            int midIndex = startIndex + (endIndex-startIndex)/2; // to prevent buffer overflow
             doMergeSort(array, startIndex, midIndex);
             doMergeSort(array, midIndex+1, endIndex);
             doMerging(array, startIndex, midIndex, endIndex);
