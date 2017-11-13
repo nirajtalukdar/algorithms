@@ -1,5 +1,13 @@
 package com.niraj.searching;
 
+
+/**
+ * Binary Search algorithm is implemented only on a sorted array. It doesn't work on
+ * an unsorted array. The algorithm involves in finding the mid point of the array and then
+ * searching the required number on the list of integers lesser than the midpoint or greater
+ * than the midpoint. It has a running time complexity of O(log n). It is an in-place sorting
+ * algorithm.
+ */
 public class BinarySearch {
 
 
