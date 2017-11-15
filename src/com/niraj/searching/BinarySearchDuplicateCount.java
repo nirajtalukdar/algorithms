@@ -14,7 +14,11 @@ public class BinarySearchDuplicateCount {
             if (array[midIndex] == n) {
                 result = midIndex;
                 if (isFirstCount) {
+
                     return doBinarySearch(array, n, isFirstCount, startIndex, midIndex-1);
+                } else {
+
+                    return doBinarySearch(array, n, isFirstCount, midIndex+1, endIndex);
                 }
             } else if (array[midIndex] > n) {
 
