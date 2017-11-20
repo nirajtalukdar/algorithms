@@ -1,5 +1,12 @@
 package com.niraj.searching;
 
+
+/**
+ * Pre-conditions for finding the number of rotations in a circular array :
+ * 1. The array must be completely sorted
+ * 2. There shouldn't be any duplicate elements in the array
+ * 3. Number of rotations is determined by the distance of the smallest element in the array from 0th index
+ */
 public class BinarySearchForCircularArray {
 
     private int totalRotationsOfCircularArray(int[] array, int startIndex, int endIndex) {
