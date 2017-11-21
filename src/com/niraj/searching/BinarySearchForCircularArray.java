@@ -6,6 +6,8 @@ package com.niraj.searching;
  * 1. The array must be completely sorted
  * 2. There shouldn't be any duplicate elements in the array
  * 3. Number of rotations is determined by the distance of the smallest element in the array from 0th index
+ *
+ * Running time complexity of this algorithm is O(log n)
  */
 public class BinarySearchForCircularArray {
 
@@ -16,8 +18,19 @@ public class BinarySearchForCircularArray {
             if (array[startIndex] <= array[endIndex]) {
                 return startIndex;
             }
+
+            /**
+             * A characteristic property observed in circular array is that the pivot position(midpoint) is always
+             * smaller than the values to next and prior to it.
+             */
             int midIndex = startIndex + (endIndex-startIndex)/2;
+            /**
+             * A way to find the previous index to avoid returning negative integers if midpoint is at index 0
+             */
             int previousIndex = (midIndex + array.length -1)%array.length;
+            /**
+             * A way to find the next index to avoid returning invalid index position if the midpoint is at endIndex.
+             */
             int nextIndex = (midIndex+1)%array.length;
 
             if (array[midIndex] <= array[previousIndex] && array[midIndex] <= array[nextIndex]) {
