@@ -4,6 +4,33 @@ public class BinarySearchToFindElement {
 
     private int findIndexOfElement(int[] array, int n, int startIndex, int endIndex) {
 
+        if (startIndex <= endIndex) {
+
+            int midIndex = startIndex + (endIndex-startIndex)/2;
+
+            if (array[midIndex] == n) {
+                return midIndex;
+            }
+            if (array[midIndex] <= array[endIndex]) {
+                if (n > array[midIndex] && n < array[endIndex]) {
+
+                    return findIndexOfElement(array, n, midIndex+1, endIndex);
+                } else {
+
+                    return findIndexOfElement(array, n, startIndex, midIndex-1);
+                }
+            } else if (array[midIndex] >= array[startIndex]) {
+
+                if (n >= array[startIndex] && n < array[midIndex]) {
+
+                    return findIndexOfElement(array, n, startIndex, midIndex-1);
+                } else {
+
+                    return findIndexOfElement(array, n, midIndex+1, endIndex);
+                }
+            }
+        }
+
         return -1;
     }
 
