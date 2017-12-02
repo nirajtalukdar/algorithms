@@ -1,0 +1,53 @@
+package com.niraj.trees;
+
+public class BinarySearchTree {
+
+    private int data;
+    private BinarySearchTree leftNode;
+    private BinarySearchTree rightNode;
+
+    public BinarySearchTree(int data) {
+        this.data = data;
+        this.leftNode = null;
+        this.rightNode = null;
+    }
+
+    public BinarySearchTree(){
+
+    }
+
+    private BinarySearchTree createNode(int data) {
+
+        return new BinarySearchTree(data);
+    }
+
+    private BinarySearchTree insertNode(BinarySearchTree node, int data) {
+
+        if (node == null) {
+            node = createNode(data);
+
+        } else if (data <= node.data) {
+
+            node.leftNode = insertNode(node.leftNode, data);
+        } else {
+
+            node.rightNode = insertNode(node.rightNode, data);
+        }
+
+        return node;
+    }
+
+    public static void main(String[] args) {
+
+        BinarySearchTree bst = new BinarySearchTree(15);
+        bst.insertNode(bst, 10);
+        bst.insertNode(bst, 20);
+        bst.insertNode(bst, 12);
+        bst.insertNode(bst, 17);
+        bst.insertNode(bst, 8);
+        bst.insertNode(bst, 25);
+
+        System.out.println("Insertion complete");
+
+    }
+}
