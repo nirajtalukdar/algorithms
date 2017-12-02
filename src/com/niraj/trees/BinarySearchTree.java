@@ -37,6 +37,26 @@ public class BinarySearchTree {
         return node;
     }
 
+    private boolean isNodeAvailable(BinarySearchTree node, int data) {
+
+        boolean isFound = false;
+
+        if (node == null) {
+            isFound =  false;
+
+        } else if (data == node.data) {
+            isFound = true;
+
+        } else if (data < node.data) {
+            isFound = isNodeAvailable(node.leftNode, data);
+
+        } else {
+            isFound = isNodeAvailable(node.rightNode, data);
+        }
+
+        return isFound;
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTree bst = new BinarySearchTree(15);
@@ -46,8 +66,10 @@ public class BinarySearchTree {
         bst.insertNode(bst, 17);
         bst.insertNode(bst, 8);
         bst.insertNode(bst, 25);
+        boolean isNodePresent = bst.isNodeAvailable(bst, 20);
 
         System.out.println("Insertion complete");
+        System.out.println("IsNodePresent : "+isNodePresent);
 
     }
 }
