@@ -57,6 +57,18 @@ public class BinarySearchTree {
         return isFound;
     }
 
+    public int findHeightOfBinaryTree(BinarySearchTree node) {
+
+        if (node == null) {
+            return -1;
+        }
+
+        int leftNodeHeight = findHeightOfBinaryTree(node.leftNode);
+        int rightNodeHeight = findHeightOfBinaryTree(node.rightNode);
+
+        return Math.max(leftNodeHeight, rightNodeHeight) +1;
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTree bst = new BinarySearchTree(15);
@@ -70,6 +82,7 @@ public class BinarySearchTree {
 
         System.out.println("Insertion complete");
         System.out.println("IsNodePresent : "+isNodePresent);
+        System.out.println("Height of the binary tree : "+bst.findHeightOfBinaryTree(bst));
 
     }
 }
