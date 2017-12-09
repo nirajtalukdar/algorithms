@@ -1,5 +1,10 @@
 package com.niraj.trees;
 
+import com.niraj.searching.BinarySearch;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
     private int data;
@@ -69,6 +74,28 @@ public class BinarySearchTree {
         return Math.max(leftNodeHeight, rightNodeHeight) +1;
     }
 
+    public void doLevelOrderTraversing(BinarySearchTree node) {
+
+        if (node == null) {
+            return;
+        }
+        Queue<BinarySearchTree> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(node);
+
+        while (!nodeQueue.isEmpty()) {
+
+            node = nodeQueue.peek();
+            if (node.leftNode != null) {
+                nodeQueue.offer(node.leftNode);
+            }
+            if (node.rightNode != null) {
+                nodeQueue.offer(node.rightNode);
+            }
+            System.out.print(node.data+" ");
+            nodeQueue.poll();
+        }
+    }
+
     public static void main(String[] args) {
 
         BinarySearchTree bst = new BinarySearchTree(15);
@@ -79,6 +106,7 @@ public class BinarySearchTree {
         bst.insertNode(bst, 8);
         bst.insertNode(bst, 25);
         boolean isNodePresent = bst.isNodeAvailable(bst, 20);
+        bst.doLevelOrderTraversing(bst);
 
         System.out.println("Insertion complete");
         System.out.println("IsNodePresent : "+isNodePresent);
