@@ -3,6 +3,9 @@ package com.niraj.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * This is a type of breadth first search (BFS) algorithm
+ */
 public class LevelOrderTraversal {
 
     class Node {
