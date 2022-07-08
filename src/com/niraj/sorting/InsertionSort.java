@@ -1,5 +1,7 @@
 package com.niraj.sorting;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Random;
 
 
@@ -8,14 +10,13 @@ import java.util.Random;
  */
 public class InsertionSort {
 
-    private int[] populateArray() {
+    private int[] populateArray(final int arraySize) {
 
-        int[] array = new int[10];
+        int[] array = new int[arraySize];
         Random rNum = new Random();
-        for (int i = 0; i < 10; i++) {
-            array[i] = rNum.nextInt(175);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rNum.nextInt(arraySize*5);
         }
-
         return array;
     }
 
@@ -42,9 +43,9 @@ public class InsertionSort {
     }
 
     /**
-     * Insertion sort algorithm is a stable algorithm if we keep the comparision of array[j] > current as written below.
+     * Insertion sort algorithm is a stable algorithm if we keep the comparison of array[j] > current as written below.
      * Stable algorithms ensure that equal values are not shifted from their order of occurrence during sorting. In this
-     * case, if we would have used '>=' instead of '>' for comparision, algorithm would behave as unstable as equal values
+     * case, if we would have used '>=' instead of '>' for comparison, algorithm would behave as unstable as equal values
      * would have been shifted.
      */
     private void doInsertionSorting(int[] array) {
@@ -90,10 +91,13 @@ public class InsertionSort {
 
         InsertionSort is = new InsertionSort();
         System.out.println("Array before sorting ==========> ");
-        int[] input = is.populateArray();
+        int[] input = is.populateArray(8);
         is.displayArray(input);
-        is.doInsertionSortingFromRight(input);
+        Instant start = Instant.now();
+        is.doInsertionSorting(input);
+        Instant end = Instant.now();
         System.out.println("\nArray after sorting ==========>");
         is.displayArray(input);
+        System.out.println("\nTime taken (ms) : "+ Duration.between(start, end).toMillis());
     }
 }
