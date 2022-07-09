@@ -63,6 +63,22 @@ public class InsertionSort {
         }
     }
 
+    private void doInsertionSortV2(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int j = i;
+            while (j>0 && array[j] < array[j-1]) {
+                swap(array, j, j-1);
+                j--;
+            }
+        }
+    }
+
+    private void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
+
     private void displayArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i]+" ");
@@ -91,10 +107,11 @@ public class InsertionSort {
 
         InsertionSort is = new InsertionSort();
         System.out.println("Array before sorting ==========> ");
-        int[] input = is.populateArray(8);
+        int[] input = is.populateArray(15);
         is.displayArray(input);
         Instant start = Instant.now();
         is.doInsertionSorting(input);
+       // is.doInsertionSortV2(input);
         Instant end = Instant.now();
         System.out.println("\nArray after sorting ==========>");
         is.displayArray(input);
