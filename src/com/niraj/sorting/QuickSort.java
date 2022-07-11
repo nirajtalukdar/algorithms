@@ -16,7 +16,8 @@ public class QuickSort {
     private void doQuickSort(Random random, int[] array, int startIndex, int endIndex) {
 
         if (startIndex < endIndex) {
-            int partitionIndex = getRandomizedPartitionIndex(random, array, startIndex, endIndex);
+            //int partitionIndex = getRandomizedPartitionIndex(random, array, startIndex, endIndex);
+            int partitionIndex = getPartitionIndexWithPivotAtBeginning(array, startIndex, endIndex);
             doQuickSort(random, array, startIndex, partitionIndex-1);
             doQuickSort(random, array,partitionIndex+1, endIndex);
         }
@@ -72,9 +73,24 @@ public class QuickSort {
         }
     }
 
+    public int getPartitionIndexWithPivotAtBeginning(int[] array, int startIndex, int endIndex) {
+
+        int pivotValue = array[startIndex];
+        int pIndex = endIndex;
+
+        for (int i = endIndex; i > startIndex; i--) {
+            if(array[i] > pivotValue) {
+                swap(array, i, pIndex);
+                pIndex--;
+            }
+        }
+        swap(array, startIndex, pIndex);
+        return pIndex;
+    }
+
     public static void main(String[] args) {
 
-        int[] array = new int[20];
+        int[] array = new int[8];
         Random rNum = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = rNum.nextInt(75);
