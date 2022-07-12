@@ -103,6 +103,22 @@ public class InsertionSort {
         }
     }
 
+    /**
+     * Another way of doing insertion sort from the right to the left.
+     */
+    private void doInsertionSortingFromRightV2(int[] array) {
+
+        for (int i = array.length -1; i>0; i--) {
+            int j = i-1;
+            int k = i;
+            while(j < array.length-1 && array[j] > array[k]) {
+                swap(array, j, k);
+                j++;
+                k++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         InsertionSort is = new InsertionSort();
@@ -110,8 +126,9 @@ public class InsertionSort {
         int[] input = is.populateArray(15);
         is.displayArray(input);
         Instant start = Instant.now();
-        is.doInsertionSorting(input);
+        //is.doInsertionSorting(input);
        // is.doInsertionSortV2(input);
+        is.doInsertionSortingFromRightV2(input);
         Instant end = Instant.now();
         System.out.println("\nArray after sorting ==========>");
         is.displayArray(input);
